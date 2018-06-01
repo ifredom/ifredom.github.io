@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+    
+    
+  <url>
+    <loc>http://ifredom.com/tensorflowjs.html</loc>
+    <lastmod>2018-05-29T07:24:53.536Z</lastmod>
+    <data>
+        <display>
+        <title>机器学习之tensorflowJS</title>
+        <pubTime>2018-05-29T14:04:13.000Z</pubTime>
+        
+        <tag>tensorflow</tag>
+         
+        <tag>Machine learning</tag>
+         
+         
+           
+             
+              <breadCrumb title="机器学习" url="http://ifredom.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/hexo-hello.html</loc>
+    <lastmod>2018-05-29T07:09:01.062Z</lastmod>
+    <data>
+        <display>
+        <title>Hello Hexo</title>
+        <pubTime>2017-11-26T11:36:26.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://ifredom.com/Chocolatey.html</loc>
+    <lastmod>2018-05-29T02:45:39.558Z</lastmod>
+    <data>
+        <display>
+        <title>Chocolatey</title>
+        <pubTime>2018-05-29T10:10:06.000Z</pubTime>
+        
+        <tag>windows</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/life-worth.html</loc>
+    <lastmod>2018-05-28T06:48:15.274Z</lastmod>
+    <data>
+        <display>
+        <title>生活的意义</title>
+        <pubTime>2018-05-28T13:09:38.000Z</pubTime>
+        
+        <tag>房市</tag>
+         
+         
+           
+             
+              <breadCrumb title="生活感悟" url="http://ifredom.com/categories/%E7%94%9F%E6%B4%BB%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/data-structure-linklist.html</loc>
+    <lastmod>2018-05-26T08:09:13.113Z</lastmod>
+    <data>
+        <display>
+        <title>【数据结构】--链表</title>
+        <pubTime>2018-05-26T11:57:02.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="数据结构" url="http://ifredom.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/hexo-themes.html</loc>
+    <lastmod>2018-05-26T03:57:50.986Z</lastmod>
+    <data>
+        <display>
+        <title>hexo主题定制</title>
+        <pubTime>2018-04-20T00:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/hexo-theme.html</loc>
+    <lastmod>2018-05-26T03:57:42.635Z</lastmod>
+    <data>
+        <display>
+        <title>个性化设置next主题</title>
+        <pubTime>2018-05-24T16:56:40.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://ifredom.com/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/travis-ci-deploy-blog.html</loc>
+    <lastmod>2018-05-26T03:42:23.747Z</lastmod>
+    <data>
+        <display>
+        <title>使用Travis-ci持续集成</title>
+        <pubTime>2018-05-25T17:09:32.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Travis CI</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://ifredom.com/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+    
+</urlset>
