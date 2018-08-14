@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="ifredom的故事,"> 
+    <meta name="author" content="ifredom"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">CentOS搭建Git服务器</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">CentOS搭建Git服务器</h1>
+        <div class="stuff">
+            <span>六月 08, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/git/">git</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="新增服务器管理员：git"><a href="#新增服务器管理员：git" class="headerlink" title="新增服务器管理员：git"></a>新增服务器管理员：git</h3><blockquote>
+<p>服务器端创建 git 用户，用来管理 Git 服务，并为 git 用户设置密码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@vultr home]<span class="comment"># id git</span></span><br><span class="line">id: git：no such user   <span class="comment"># 没有此用户</span></span><br><span class="line">[root@vultr home]<span class="comment"># useradd git  // 新增用户，用户名为git</span></span><br><span class="line">[root@vultr home]<span class="comment"># passwd git  // 设置新用户git密码</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="初始化一个git仓库"><a href="#初始化一个git仓库" class="headerlink" title="初始化一个git仓库"></a>初始化一个git仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@vultr home]<span class="comment"># git init --bare home/git/project.git  # 初始化一个仓库</span></span><br><span class="line"></span><br><span class="line">[root@vultr git]<span class="comment"># chown -R git:git project.git  #设置仓库的管理员为git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一个git表示用户组，第二个git表示用户组里面的git用户</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>tips:到这里，服务器端的仓库就新建完了，就是这么简单</li>
+</ul>
+<hr>
+<h3 id="本地clone仓库"><a href="#本地clone仓库" class="headerlink" title="本地clone仓库"></a>本地clone仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; git <span class="built_in">clone</span> git@149.28.18.111:/home/git/project.git</span><br><span class="line"></span><br><span class="line">&gt; Cloning into <span class="string">'project'</span>...</span><br><span class="line"></span><br><span class="line">&gt; warning: You appear to have cloned an empty repository.</span><br><span class="line"><span class="comment"># 这样显示就表示克隆成功了</span></span><br></pre></td></tr></table></figure>
+<h3 id="本地新建一个test-txt文件，push到服务器"><a href="#本地新建一个test-txt文件，push到服务器" class="headerlink" title="本地新建一个test.txt文件，push到服务器"></a>本地新建一个test.txt文件，push到服务器</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; git status</span><br><span class="line">&gt;&gt; git add -a .</span><br><span class="line">&gt;&gt; git commit -m <span class="string">'test'</span></span><br><span class="line">&gt;&gt; git push</span><br><span class="line">git@149.28.18.111<span class="string">'s password:</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>push时会提醒你输入前面新建的git用户密码，输入后推送成功.输入密码时不可见<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Counting objects: 3, <span class="keyword">done</span>.</span><br><span class="line">Writing objects: 100% (3/3), 204 bytes | 204.00 KiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 3 (delta 0), reused 0 (delta 0)</span><br><span class="line">To 149.28.18.111:/home/git/project.git</span><br><span class="line"> * [new branch]      master -&gt; master</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="git服务器SSH验证，避免输入密码"><a href="#git服务器SSH验证，避免输入密码" class="headerlink" title="git服务器SSH验证，避免输入密码"></a>git服务器SSH验证，避免输入密码</h3><p>git每一次push都需要输入密码显然很麻烦，除了密码的验证方式，还有ssh(公钥)验证方式。</p>
+<h4 id="客户端新建一个ssh-公钥"><a href="#客户端新建一个ssh-公钥" class="headerlink" title="客户端新建一个ssh(公钥)"></a>客户端新建一个ssh(公钥)</h4><ol>
+<li><p>设置Git的user name和email：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; git config --global user.name <span class="string">"example"</span></span><br><span class="line">&gt;&gt; git config --global user.email <span class="string">"example@qq.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; ssh-keygen -t rsa -C “example@qq.com”</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成密钥成功后，公钥保存的目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; C:\Users\你电脑的用户名\.ssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在这个目录下有2个文件 `id_rsa`和`id_rsa.pub`.其中id_rsa是你自己的私钥，本地保存即可，id_rsa.pub是公钥，需要上传到服务器</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务器端，新建一个文件夹.ssh，一会儿用来存放公钥，目录为/home/git/.ssh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建</span></span><br><span class="line">[root@vultr git]<span class="comment"># mkdir /home/git/.ssh</span></span><br><span class="line">[root@vultr git]<span class="comment"># cd /home/git</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">[root@vultr git]<span class="comment"># ls -a</span></span><br><span class="line"><span class="comment"># 出现 .ssh 则表示新建成功</span></span><br><span class="line">.  ..  project.git  .ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>即将成功了! 客户端，打开 <code>id_rsa.pub</code> 文件，复制内容到本地新建的 <code>authorized_keys</code> 文件内。 将 <code>authorized_keys</code> 文件上传到服务器，位置目录为 <code>/home/git/.ssh/authorized_keys</code>。也就是第4步用来存放公钥的文件夹</p>
+</li>
+<li><p>测试是否成功!<br>本地的test.txt文件改动一下内容，再次提交，你会发现不用密码了.</p>
+</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="images/diaspora-theme/Laibach.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="ifredom的故事,"> 
+    <meta name="author" content="ifredom"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">在Centos 7下搭建Apache + PHP运行环境</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">在Centos 7下搭建Apache + PHP运行环境</h1>
+        <div class="stuff">
+            <span>六月 29, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h2><p>之前都是在 windows 下搭建 PHP 运行环境，使用的是 phpstudy。</p>
+<p>在 Centos 7 下搭建 Apache + PHP 运行环境，在这里我采用最简单的 yum install 安装法，能够用 yum 安装搞定的事情我都会优先选择。</p>
+<h2 id="安装-apache"><a href="#安装-apache" class="headerlink" title="安装 apache"></a>安装 apache</h2><p>在 Centos 中，Apache 的名称叫 httpd，因此我们要安装的是 httpd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br></pre></td></tr></table></figure>
+<p>安装完成后，默认的 Apache 配置文件路径是：/etc/httpd/conf/httpd.conf</p>
+<h2 id="安装-PHP"><a href="#安装-PHP" class="headerlink" title="安装 PHP"></a>安装 PHP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php</span><br></pre></td></tr></table></figure>
+<p>安装完成后，默认的 php 配置文件路径是：/etc/php.ini</p>
+<h2 id="测试-Apache-是否安装成功"><a href="#测试-Apache-是否安装成功" class="headerlink" title="测试 Apache 是否安装成功"></a>测试 Apache 是否安装成功</h2><p>apache 默认的项目目录位置在/var/www/html，因此</p>
+<h2 id="使用-FPM"><a href="#使用-FPM" class="headerlink" title="使用 FPM"></a>使用 FPM</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line">yum install ruby-devel gcc make rpm-build rubygems</span><br><span class="line">gem install --no-ri --no-rdoc fpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试fpm是否安装成功</span></span><br><span class="line">fpm --version</span><br></pre></td></tr></table></figure>
+<h2 id="nginx-与-php-的关系"><a href="#nginx-与-php-的关系" class="headerlink" title="nginx 与 php 的关系"></a>nginx 与 php 的关系</h2><p>apache 比 nginx 更占用资源，目前用的很少了，使用 nginx。</p>
+<p>nginx 本身不能处理 PHP，它只是个 web 服务器，当接收到请求后，如果是 php 请求，则发给 php 解释器处理，并把结果返回给客户端。</p>
+<p>nginx 一般是把请求发 fastcgi 管理进程处理，fascgi 管理进程选择 cgi 子进程处理结果并返回被 nginx。</p>
+<h3 id="额外指令"><a href="#额外指令" class="headerlink" title="额外指令"></a>额外指令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># centos7 启动httpd</span></span><br><span class="line">systemctl start httpd</span><br><span class="line"><span class="comment"># 重启Apache 服务</span></span><br><span class="line">systemctl restart httpd</span><br><span class="line"><span class="comment"># 停止Apache 服务</span></span><br><span class="line">systemctl stop httpd</span><br><span class="line"><span class="comment"># 设置 apache 服务开机启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> httpd.service</span><br><span class="line"><span class="comment"># 查看80端口使用情况</span></span><br><span class="line">netstat -lnp|grep 80</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">下面我们以安装php5.6为例说明一下，如果你的yum安装的php版本够高或者满足自己的意愿，此步骤可直接略过。</span><br><span class="line"><span class="comment">#CentOs 6.x</span></span><br><span class="line">rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm</span><br><span class="line"><span class="comment">#CentOs 7.X</span></span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpm</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># /var/www/html 是apach默认存放项目文职</span></span><br></pre></td></tr></table></figure>
+<h3 id="安装-php，使用源码方式安装"><a href="#安装-php，使用源码方式安装" class="headerlink" title="安装 php，使用源码方式安装"></a>安装 php，使用源码方式安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载php源码</span></span><br><span class="line">wget http://cn2.php.net/get/php-5.6.36.tar.gz/from/jp2.php.net/mirror</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zvxf php-5.6.36.tar.gz</span><br><span class="line"><span class="comment"># 进入该目录</span></span><br><span class="line"><span class="built_in">cd</span> php-5.6.36</span><br><span class="line"></span><br><span class="line"><span class="comment"># [root@vultr php-5.6.36]# 目录下编译</span></span><br><span class="line">./configure</span><br><span class="line">--prefix=/usr/<span class="built_in">local</span>/php                    <span class="comment">#指定php安装目录</span></span><br><span class="line">--with-config-file-path=/usr/<span class="built_in">local</span>/php/etc <span class="comment">#指定php配置目录</span></span><br><span class="line">--<span class="built_in">enable</span>-fpm --<span class="built_in">enable</span>-pcntl --<span class="built_in">enable</span>-mysqlnd --<span class="built_in">enable</span>-opcache --<span class="built_in">enable</span>-sockets --<span class="built_in">enable</span>-sysvmsg --<span class="built_in">enable</span>-sysvsem  \</span><br><span class="line">--<span class="built_in">enable</span>-sysvshm --<span class="built_in">enable</span>-shmop --<span class="built_in">enable</span>-zip --<span class="built_in">enable</span>-ftp --<span class="built_in">enable</span>-soap --<span class="built_in">enable</span>-xml --<span class="built_in">enable</span>-mbstring \</span><br><span class="line">--<span class="built_in">disable</span>-rpath --<span class="built_in">disable</span>-debug --<span class="built_in">disable</span>-fileinfo --with-mysql --with-mysqli --with-pdo-mysql \</span><br><span class="line">--with-pcre-regex --with-iconv --with-zlib --with-mcrypt --with-gd --with-openssl --with-mhash --with-xmlrpc --with-curl --with-imap-ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># prefix是安装目录，-with-mysql是mysql的安装目录，由于我是用yum装的，所以不需要写-with-mysql=**。</span></span><br><span class="line"><span class="comment"># 编译成功后，执行正式安装</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"><span class="comment">## 没有报错就表示安装完成。</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>配置 php 配置环境变量</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改文件/etc/profile，在末尾追加</span></span><br><span class="line"><span class="comment"># 这一步类似windows设置环境变量，添加path。也就是将指令添加到路径中方便使用</span></span><br><span class="line">PATH=<span class="variable">$PATH</span>:/usr/<span class="built_in">local</span>/php/bin</span><br><span class="line"><span class="built_in">export</span> PATH</span><br><span class="line"><span class="comment"># 执行命令使得改动立即生效</span></span><br><span class="line"><span class="built_in">source</span> /etc/profile</span><br><span class="line"><span class="comment"># 查看环境变量</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>配置 php-fpm</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确认php的解压缩目录 /tang/download/php-5.6.36</span></span><br><span class="line"><span class="comment"># 在php-5.6.36目录下 依次执行这几句,复制配置</span></span><br><span class="line"> cp php.ini-production /etc/php.ini</span><br><span class="line"> cp /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf.default /usr/<span class="built_in">local</span>/php/etc/php-fpm.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认是没有生成php-fpm.pid文件得，修改php-fpm.conf文件，设置pid，去掉封号。重启生成php-fpm.pid文件</span></span><br><span class="line"><span class="comment"># php-fpm.pid文件得位置设置在php-fpm中查看，此处位于/usr/local/php/var/run/php-fpm.pid</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># php-fpm添加到service服务中</span></span><br><span class="line">cp /tang/download/php-5.6.36/sapi/fpm/init.d.php-fpm /etc/init.d/php-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置权限，并添加服务</span></span><br><span class="line">chmod +x /etc/init.d/php-fpm</span><br><span class="line">chkconfig --add php-fpm</span><br><span class="line"></span><br><span class="line"><span class="comment">#  检查php-fpm语法错误</span></span><br><span class="line">/usr/<span class="built_in">local</span>/php/sbin/php-fpm -t</span><br><span class="line"></span><br><span class="line">以后可以使用如下命令管理php-fpm了</span><br><span class="line">service php-fpm start</span><br><span class="line">service php-fpm stop</span><br><span class="line">service php-fpm restart</span><br><span class="line">service php-fpm reload</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动php-fpm<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">service php-fpm start</span><br><span class="line"><span class="comment"># 查看php-fpm服务状态</span></span><br><span class="line">systemctl status php-fpm.service</span><br><span class="line"><span class="comment">#查看一下php-fpm是否启动成功</span></span><br><span class="line">ps aux | grep php-fpm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">systemctl restart php-fpm.service</span><br><span class="line">systemctl restart nginx.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载PHP</span></span><br><span class="line"><span class="comment"># 列出PHP所有得安装包</span></span><br><span class="line">rpm -qa | grep php</span><br><span class="line"><span class="comment">#根据列出得目录依次卸载</span></span><br><span class="line">rpm -e php-common-5.4.16-45.el7.x86_64</span><br><span class="line">php -m</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="查看nginx状态"><a href="#查看nginx状态" class="headerlink" title="查看nginx状态"></a>查看nginx状态</h3><p>ps aux | grep nginx</p>
+<h3 id="修改pgp-fpm配置"><a href="#修改pgp-fpm配置" class="headerlink" title="修改pgp-fpm配置"></a>修改pgp-fpm配置</h3><p>修改php-fpm.conf<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改用户组</span></span><br><span class="line">user = root</span><br><span class="line">group = root</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a），查看当前登录用户</span><br><span class="line"></span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># w</span></span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># who</span></span><br><span class="line"></span><br><span class="line">b），查看自己的用户名</span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># whoami</span></span><br><span class="line"></span><br><span class="line">c），查看单个用户信息</span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># finger apacheuser</span></span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># id apacheuser</span></span><br><span class="line"></span><br><span class="line">d），查看用户登录记录</span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># last 查看登录成功的用户记录</span></span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># lastb 查看登录不成功的用户记录</span></span><br><span class="line"></span><br><span class="line">e），查看所有用户</span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># cut -d : -f 1 /etc/passwd</span></span><br><span class="line">[root@krlcgcms01 ~]<span class="comment"># cat /etc/passwd |awk -F \: '&#123;print $1&#125;'</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="nginx配置fastcgi访问PHP文件注意事项"><a href="#nginx配置fastcgi访问PHP文件注意事项" class="headerlink" title="nginx配置fastcgi访问PHP文件注意事项"></a>nginx配置fastcgi访问PHP文件注意事项</h3><p>必须要有root这项参数，并且末尾不带斜杠<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">    root   /tang/testphp/;</span><br><span class="line">    <span class="comment">#default root page</span></span><br><span class="line">    fastcgi_index index.php;</span><br><span class="line">    <span class="comment"># default port 9000</span></span><br><span class="line">    fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">    <span class="comment">#set php proxy_programe path</span></span><br><span class="line">    fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">    include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="宝塔面板"><a href="#宝塔面板" class="headerlink" title="宝塔面板"></a>宝塔面板</h3><p>宝塔面板操作指令<br><a href="https://www.bt.cn/btcode.html" target="_blank" rel="noopener">https://www.bt.cn/btcode.html</a></p>
+<p>linux16<br>ro  改为 rorw init=/sysroot/bin/sh</p>
+<p>#修改 root用户密码</p>
+<p><a href="https://www.jianshu.com/p/327e3a716c95" target="_blank" rel="noopener">https://www.jianshu.com/p/327e3a716c95</a><br><a href="https://www.thevultr.org/xiao_tie_shi_ru_he_xiu_gai_vultr_de_root_mi_ma/" target="_blank" rel="noopener">https://www.thevultr.org/xiao_tie_shi_ru_he_xiu_gai_vultr_de_root_mi_ma/</a><br>密码修改为: qscrdz:3823</p>
+<p>ALTER USER ‘root‘@’localhost’ IDENTIFIED BY ‘MyNewPass4!’;</p>
+<p>原来为ro</p>
+<h4 id="修改文件拥有者"><a href="#修改文件拥有者" class="headerlink" title="修改文件拥有者"></a>修改文件拥有者</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 更改文件所有组，递归 ：-Rv  用户名：www  文件绝对地址： /tang/cms</span></span><br><span class="line">chgrp -Rv staff  testchgrp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改文件所有者，递归 ：-Rv  用户名：www  文件绝对地址： /tang/cms</span></span><br><span class="line">chown -Rv www  /tang/cms</span><br></pre></td></tr></table></figure>
+<h3 id="php-fpm-conf"><a href="#php-fpm-conf" class="headerlink" title="php-fpm.conf"></a>php-fpm.conf</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">修改user和 group</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改前</span></span><br><span class="line">user = nobody</span><br><span class="line">group = nobody</span><br><span class="line"><span class="comment"># 修改后</span></span><br><span class="line">user = www</span><br><span class="line">group = www</span><br></pre></td></tr></table></figure>
+<h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><h1 id="修改前"><a href="#修改前" class="headerlink" title="修改前"></a>修改前</h1><p>user nginx</p>
+<h1 id="修改后"><a href="#修改后" class="headerlink" title="修改后"></a>修改后</h1><p>user www</p>
+<h2 id="安装MySQl"><a href="#安装MySQl" class="headerlink" title="安装MySQl"></a>安装MySQl</h2><p><strong><a href="https://qizhanming.com/blog/2017/05/10/centos-7-yum-install-mysql-57" target="_blank" rel="noopener">https://qizhanming.com/blog/2017/05/10/centos-7-yum-install-mysql-57</a></strong><br><a href="https://segmentfault.com/a/1190000012703513" target="_blank" rel="noopener">https://segmentfault.com/a/1190000012703513</a><br>安装<br>配置 /etc/my.conf</p>
+<p>mysql密码： De#&amp;9e:6wYBJ</p>
+<p>查看mysql服务<br>rpm -qa | grep mysql</p>
+<h3 id="mysqld-log文件创建并设置权限和用户用户组"><a href="#mysqld-log文件创建并设置权限和用户用户组" class="headerlink" title="mysqld.log文件创建并设置权限和用户用户组"></a>mysqld.log文件创建并设置权限和用户用户组</h3><p>chown -R mysql mysql/<br>chgrp -R mysql mysql/</p>
+<h3 id="mysql指令找不到解决办法"><a href="#mysql指令找不到解决办法" class="headerlink" title="mysql指令找不到解决办法"></a>mysql指令找不到解决办法</h3><p>mysql mysqladmin: command not found解决方法<br>有时候安装好MySQL程序的时候，直接输入命令mysql或mysqladmin会发现提示命令不存在，这是由于系统默认会查找/usr/bin下的命令，如果这个命令不在这个目录下，当然会找不到命令，我们需要做的就是映射一个链接到/usr/bin目录下，相当于建立一个链接文件。</p>
+<p>首先得知道mysql命令或mysqladmin命令的完整路径，比如mysql的路径是：/usr/local/mysql/bin/mysql，我们则可以这样执行命令：</p>
+<p>ln -s /usr/local/mysql/bin/mysql /usr/bin<br>ln -s /usr/local/mysql/bin/mysqladmin /usr/bin<br>当提示mysqldump: command not found时同样可以通过此方法来解决。<br>或者直接修改/etc/profile文件，末尾添加路径，问号分割</p>
+<h2 id="查找mysql-sock文件"><a href="#查找mysql-sock文件" class="headerlink" title="查找mysql.sock文件"></a>查找mysql.sock文件</h2><p>find / -name mysql.sock</p>
+<p>mysqld –initialize-insecure –user=mysql –basedir=/usr/local/mysql –datadir=/usr/local/mysql/data –lc_messages_dir=/usr/local/mysql/share –lc_messages=en_US</p>
+<h2 id="卸载mysql"><a href="#卸载mysql" class="headerlink" title="卸载mysql"></a>卸载mysql</h2><p>源码编译方式安装，卸载<br>rm -rf /var/lib/mysql<br>rm /etc/my.cnf<br>.将分散的文件/文件夹删除<br>whereis mysql</p>
+<h2 id="查看mysql密码"><a href="#查看mysql密码" class="headerlink" title="查看mysql密码"></a>查看mysql密码</h2><h1 id="最终修改为了123456"><a href="#最终修改为了123456" class="headerlink" title="最终修改为了123456"></a>最终修改为了123456</h1><p>grep ‘temporary password’ /var/log/mysqld.log</p>
+<p>登录 MySQL 并修改密码<br>Enter password:<br>mysql&gt; ALTER USER ‘root‘@’localhost’ IDENTIFIED BY ‘MyNewPass4!’;</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="images/diaspora-theme/LastNightInParis.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

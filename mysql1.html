@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="ifredom的故事,"> 
+    <meta name="author" content="ifredom"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">mysql安装--压缩包安装</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">mysql安装--压缩包安装</h1>
+        <div class="stuff">
+            <span>六月 26, 2018</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>官网下载压缩包， 我下载的版本是windows/5.6/64位. <code>mysql-5.6.40-winx64</code></p>
+</li>
+<li><p>解压到安装目录， 我解压的位置是  <code>D:\software\mysql-5.6.40-winx64</code></p>
+</li>
+<li><p>设置环境变量，让cmd识别路径你已经下载了mysql,具体位置是path,添加到最末尾，注意分号。  <code>;D:\software\mysql-5.6.40-winx64</code></p>
+</li>
+<li><p>修改配置文件<code>my-default.ini</code>，文件位于安装目录下。修改<code>basedir</code>和<code>datadir</code>，一个是设置数据库文件的存放目录，一个是设置mysql的安装目录</p>
+</li>
+</ol>
+<ul>
+<li>注意这里的目录使用单斜线可能会导致后面的初始化报错.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"></span><br><span class="line">basedir = D:\\software\\mysql-5.6.40-winx64</span><br><span class="line">datadir = D:\\software\\mysql-5.6.40-winx64\\data</span><br><span class="line"><span class="comment"># port = 3310</span></span><br><span class="line"><span class="comment"># server_id = .....</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>修改配置文件名<code>my-default.ini</code>  改为  <code>my.ini</code></li>
+</ol>
+<blockquote>
+<p>准备工作已经做完，接起来准备启动</p>
+</blockquote>
+<ol start="6">
+<li>管理员权限运行cmd, cmd目录切换到mysql安装目录的bin文件夹下，执行初始化</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 执行初始化</span></span><br><span class="line">D:\software\mysql-5.6.40-winx64\bin&gt; mysqld --initialize</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化成功，会显示一堆日志形式的日志</span></span><br><span class="line"></span><br><span class="line">2018-06-26 11:18:26 0 [Warning] TIMESTAMP with implicit DEFAULT value is depreca</span><br><span class="line">ted. Please use --explicit_defaults_for_timestamp server option (see documentati</span><br><span class="line">on <span class="keyword">for</span> more details).</span><br><span class="line">2018-06-26 11:18:26 0 [Note] --secure-file-priv is <span class="built_in">set</span> to NULL. Operations relat</span><br><span class="line">ed to importing and exporting data are disabled</span><br><span class="line">2018-06-26 11:18:26 0 [Note] mysqld (mysqld 5.6.40) starting as process 7684 ...</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li><p>开始安装mysql服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开始安装</span></span><br><span class="line">mysqld –install mysql</span><br><span class="line"><span class="comment"># 安装成功，</span></span><br><span class="line">Service successfully installed.</span><br><span class="line"></span><br><span class="line"><span class="comment"># 管理员权限下，cmd中启动mysql服务</span></span><br><span class="line">net start mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动成功，</span></span><br><span class="line">mysql 服务正在启动 .</span><br><span class="line">mysql 服务已经启动成功。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>登录MYSQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入登录mysql界面</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要求输入password密码</span></span><br><span class="line">默认为空，直接回车</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录成功后，显示</span></span><br><span class="line">Enter password:</span><br><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 1</span><br><span class="line">Server version: 5.6.40 MySQL Community Server (GPL)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">'help;'</span> or <span class="string">'\h'</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">'\c'</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">mysqld –initialize-insecure 自动生成无密码的root用户；</span><br><span class="line">mysqld –initialize自动生成带随机密码的root用户。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改mysql密码，此处我改成了 123456</span></span><br><span class="line"></span><br><span class="line"> mysql&gt;ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span>  IDENTIFIED BY <span class="string">'123456'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql&gt; <span class="built_in">exit</span>  退出mysql编辑模式；</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看你刚才安装的mysql服务</span></span><br><span class="line">打开 运行，输入 Services.msc， 其中在 服务（本地）可以看到mysql这一项，并且是正在运行状态</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止mysql服务</span></span><br><span class="line">net stop mysql</span><br><span class="line">打开 运行，输入 Services.msc， 其中在 服务（本地）可以看到mysql这一项，并且是停止状态</span><br></pre></td></tr></table></figure>
+<h2 id="遇到报错"><a href="#遇到报错" class="headerlink" title="遇到报错"></a>遇到报错</h2><h3 id="提示：ERROR-1044-42000-Access-denied-for-user-‘‘-’localhost’-to-database-‘mysql’。"><a href="#提示：ERROR-1044-42000-Access-denied-for-user-‘‘-’localhost’-to-database-‘mysql’。" class="headerlink" title="提示：ERROR 1044 (42000): Access denied for user ‘‘@’localhost’ to database ‘mysql’。"></a>提示：ERROR 1044 (42000): Access denied for user ‘‘@’localhost’ to database ‘mysql’。</h3><blockquote>
+<p>密码对不上，密码为空（默认） 或者为设置后的123456<br>网上找了一个比较流行的方法（见方法一），搞定了。今天又用这个试了试，却搞不定，在网上找了半天，终于发现是因为mysql数据库的user表里，存在用户名为空的账户即匿名账户，导致登录的时候是虽然用的是root，但实际是匿名登录的，通过错误提示里的‘‘@’localhost’可以看出来，于是解决办法见方法二。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">方法一：</span><br><span class="line">1.关闭mysql</span><br><span class="line">   <span class="comment"># service mysqld stop</span></span><br><span class="line">2.屏蔽权限</span><br><span class="line">   <span class="comment"># mysqld_safe --skip-grant-table</span></span><br><span class="line">   屏幕出现： Starting demo from .....</span><br><span class="line">3.新开起一个终端输入</span><br><span class="line">   <span class="comment"># mysql -u root mysql</span></span><br><span class="line">   mysql&gt; UPDATE user SET Password=PASSWORD(<span class="string">'newpassword'</span>) <span class="built_in">where</span> USER=<span class="string">'root'</span>;</span><br><span class="line">   mysql&gt; FLUSH PRIVILEGES;//记得要这句话，否则如果关闭先前的终端，又会出现原来的错误</span><br><span class="line">   mysql&gt; \q</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="images/diaspora-theme/再见我的爱人.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

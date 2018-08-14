@@ -2,23 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ifredom.com/demo/README.html</loc>
+    <loc>http://ifredom.com/DSL-cross-layout.html</loc>
     
-    <lastmod>2018-06-01T03:06:42.457Z</lastmod>
+    <lastmod>2018-08-14T03:51:47.341Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/python-twitter.html</loc>
+    
+    <lastmod>2018-08-14T03:50:15.853Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/hexo-theme.html</loc>
+    
+    <lastmod>2018-08-14T03:49:18.580Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/travis-ci-deploy-blog.html</loc>
+    
+    <lastmod>2018-08-14T03:48:11.585Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://ifredom.com/tensorflowjs.html</loc>
     
-    <lastmod>2018-05-29T07:24:53.536Z</lastmod>
+    <lastmod>2018-08-14T03:48:03.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/ssl-for-https.html</loc>
+    
+    <lastmod>2018-08-14T03:46:36.101Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/mysql1.html</loc>
+    
+    <lastmod>2018-08-14T03:46:24.191Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/life-worth.html</loc>
+    
+    <lastmod>2018-08-14T03:46:17.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/hexo-themes.html</loc>
+    
+    <lastmod>2018-08-14T03:46:11.759Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://ifredom.com/hexo-hello.html</loc>
     
-    <lastmod>2018-05-29T07:09:01.062Z</lastmod>
+    <lastmod>2018-08-14T03:43:02.461Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/data-structure-linklist.html</loc>
+    
+    <lastmod>2018-08-14T03:42:28.186Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/generate-git-server.html</loc>
+    
+    <lastmod>2018-08-14T03:42:18.011Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/Chocolatey.html</loc>
+    
+    <lastmod>2018-08-14T03:42:17.138Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/centos-php-env.html</loc>
+    
+    <lastmod>2018-08-14T03:38:11.796Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/about/index.html</loc>
+    
+    <lastmod>2018-08-14T03:31:39.238Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ifredom.com/demo/README.html</loc>
+    
+    <lastmod>2018-06-01T03:06:42.457Z</lastmod>
     
   </url>
   
@@ -30,58 +121,9 @@
   </url>
   
   <url>
-    <loc>http://ifredom.com/Chocolatey.html</loc>
-    
-    <lastmod>2018-05-29T02:45:39.558Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/life-worth.html</loc>
-    
-    <lastmod>2018-05-28T06:48:15.274Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/data-structure-linklist.html</loc>
-    
-    <lastmod>2018-05-26T08:09:13.113Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/hexo-themes.html</loc>
-    
-    <lastmod>2018-05-26T03:57:50.986Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/hexo-theme.html</loc>
-    
-    <lastmod>2018-05-26T03:57:42.635Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/travis-ci-deploy-blog.html</loc>
-    
-    <lastmod>2018-05-26T03:42:23.747Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ifredom.com/tags/index.html</loc>
     
     <lastmod>2018-05-26T02:17:43.306Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ifredom.com/about/index.html</loc>
-    
-    <lastmod>2018-05-26T02:17:39.025Z</lastmod>
     
   </url>
   

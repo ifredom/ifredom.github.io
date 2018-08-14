@@ -3,11 +3,88 @@
 
 
     
+  <url>
+    <loc>http://ifredom.com/DSL-cross-layout.html</loc>
+    <lastmod>2018-08-14T03:51:47.341Z</lastmod>
+    <data>
+        <display>
+        <title>说说那些大厂的跨平台方案</title>
+        <pubTime>2018-07-25T19:57:45.000Z</pubTime>
+        
+        <tag>cross-platform</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
     
+  <url>
+    <loc>http://ifredom.com/python-twitter.html</loc>
+    <lastmod>2018-08-14T03:50:15.853Z</lastmod>
+    <data>
+        <display>
+        <title>使用python发twitter</title>
+        <pubTime>2018-06-07T21:19:35.000Z</pubTime>
+        
+        <tag>crawler</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://ifredom.com/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/hexo-theme.html</loc>
+    <lastmod>2018-08-14T03:49:18.580Z</lastmod>
+    <data>
+        <display>
+        <title>个性化设置next主题</title>
+        <pubTime>2018-05-24T16:56:40.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://ifredom.com/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/travis-ci-deploy-blog.html</loc>
+    <lastmod>2018-08-14T03:48:11.585Z</lastmod>
+    <data>
+        <display>
+        <title>使用Travis-ci持续集成</title>
+        <pubTime>2018-05-25T17:09:32.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>Travis CI</tag>
+         
+         
+           
+             
+              <breadCrumb title="持续集成" url="http://ifredom.com/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
     
   <url>
     <loc>http://ifredom.com/tensorflowjs.html</loc>
-    <lastmod>2018-05-29T07:24:53.536Z</lastmod>
+    <lastmod>2018-08-14T03:48:03.526Z</lastmod>
     <data>
         <display>
         <title>机器学习之tensorflowJS</title>
@@ -28,36 +105,38 @@
 
     
   <url>
-    <loc>http://ifredom.com/hexo-hello.html</loc>
-    <lastmod>2018-05-29T07:09:01.062Z</lastmod>
+    <loc>http://ifredom.com/ssl-for-https.html</loc>
+    <lastmod>2018-08-14T03:46:36.101Z</lastmod>
     <data>
         <display>
-        <title>Hello Hexo</title>
-        <pubTime>2017-11-26T11:36:26.000Z</pubTime>
+        <title>ssl配置https</title>
+        <pubTime>2018-06-07T10:33:55.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>nginx</tag>
          
          
            
+             
+              <breadCrumb title="linux" url="http://ifredom.com/categories/linux/"/>
+          
         </display>
     </data>
     </url>
 
     
-    
-    
   <url>
-    <loc>http://ifredom.com/Chocolatey.html</loc>
-    <lastmod>2018-05-29T02:45:39.558Z</lastmod>
+    <loc>http://ifredom.com/mysql1.html</loc>
+    <lastmod>2018-08-14T03:46:24.191Z</lastmod>
     <data>
         <display>
-        <title>Chocolatey</title>
-        <pubTime>2018-05-29T10:10:06.000Z</pubTime>
+        <title>mysql安装--压缩包安装</title>
+        <pubTime>2018-06-26T11:21:45.000Z</pubTime>
         
-        <tag>windows</tag>
-         
          
            
+             
+              <breadCrumb title="数据库" url="http://ifredom.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
         </display>
     </data>
     </url>
@@ -65,7 +144,7 @@
     
   <url>
     <loc>http://ifredom.com/life-worth.html</loc>
-    <lastmod>2018-05-28T06:48:15.274Z</lastmod>
+    <lastmod>2018-08-14T03:46:17.617Z</lastmod>
     <data>
         <display>
         <title>生活的意义</title>
@@ -84,8 +163,42 @@
 
     
   <url>
+    <loc>http://ifredom.com/hexo-themes.html</loc>
+    <lastmod>2018-08-14T03:46:11.759Z</lastmod>
+    <data>
+        <display>
+        <title>hexo主题定制</title>
+        <pubTime>2018-04-20T00:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ifredom.com/hexo-hello.html</loc>
+    <lastmod>2018-08-14T03:43:02.461Z</lastmod>
+    <data>
+        <display>
+        <title>Hello Hexo</title>
+        <pubTime>2017-11-26T11:36:26.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ifredom.com/data-structure-linklist.html</loc>
-    <lastmod>2018-05-26T08:09:13.113Z</lastmod>
+    <lastmod>2018-08-14T03:42:28.186Z</lastmod>
     <data>
         <display>
         <title>【数据结构】--链表</title>
@@ -102,14 +215,14 @@
 
     
   <url>
-    <loc>http://ifredom.com/hexo-themes.html</loc>
-    <lastmod>2018-05-26T03:57:50.986Z</lastmod>
+    <loc>http://ifredom.com/generate-git-server.html</loc>
+    <lastmod>2018-08-14T03:42:18.011Z</lastmod>
     <data>
         <display>
-        <title>hexo主题定制</title>
-        <pubTime>2018-04-20T00:00:00.000Z</pubTime>
+        <title>CentOS搭建Git服务器</title>
+        <pubTime>2018-06-08T13:08:00.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>git</tag>
          
          
            
@@ -119,46 +232,40 @@
 
     
   <url>
-    <loc>http://ifredom.com/hexo-theme.html</loc>
-    <lastmod>2018-05-26T03:57:42.635Z</lastmod>
+    <loc>http://ifredom.com/Chocolatey.html</loc>
+    <lastmod>2018-08-14T03:42:17.138Z</lastmod>
     <data>
         <display>
-        <title>个性化设置next主题</title>
-        <pubTime>2018-05-24T16:56:40.000Z</pubTime>
+        <title>Chocolatey</title>
+        <pubTime>2018-05-29T10:10:06.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>windows</tag>
          
          
            
-             
-              <breadCrumb title="hexo" url="http://ifredom.com/categories/hexo/"/>
-          
         </display>
     </data>
     </url>
 
     
   <url>
-    <loc>http://ifredom.com/travis-ci-deploy-blog.html</loc>
-    <lastmod>2018-05-26T03:42:23.747Z</lastmod>
+    <loc>http://ifredom.com/centos-php-env.html</loc>
+    <lastmod>2018-08-14T03:38:11.796Z</lastmod>
     <data>
         <display>
-        <title>使用Travis-ci持续集成</title>
-        <pubTime>2018-05-25T17:09:32.000Z</pubTime>
+        <title>在Centos 7下搭建Apache + PHP运行环境</title>
+        <pubTime>2018-06-29T09:53:18.000Z</pubTime>
         
-        <tag>hexo</tag>
-         
-        <tag>Travis CI</tag>
-         
          
            
-             
-              <breadCrumb title="持续集成" url="http://ifredom.com/categories/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/"/>
-          
         </display>
     </data>
     </url>
 
+    
+    
+    
+    
     
     
     
