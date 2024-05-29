@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ifredom,"> 
+    <meta name="description" content="MagicTang&#39;s story,"> 
+    <meta name="author" content="MagicTang"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">flutter vs 前端</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">flutter vs 前端</h1>
+        <div class="stuff">
+            <span>九月 17, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/flutter/" rel="tag">flutter</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近需要做一个移动端的 app，之前使用 cordova 开发 app 的经历很不舒服，索性就把 2019 大明星<code>flutter</code>学了，决定用 flutter 撸这个项目。</p>
+<p><code>毕竟 Google 的未来战略是十年二十年计，下一代google操作系统属于 FuchSia OS，而 flutter 被指定为 FuchSia OS 上的开发框架</code>.</p>
+<p>另外一个原因是深感前端的路越来越宽，技术越来越杂了,而我所在的二线垫底城市，对于前端的需求感觉很有限,少了很多技术的乐趣。</p>
+<p>记录了一下学习 flutter 的过程，项目地址：<a href="https://github.com/ifredom/flutter-app-learn">flutter-learn-demo</a></p>
+<p><img src="/images/dota2/all-hero.jpg" alt="越来越多"></p>
+<h2 id="flutter-中的规范"><a href="#flutter-中的规范" class="headerlink" title="flutter 中的规范"></a>flutter 中的规范</h2><ul>
+<li>文件命名方式，采用下划线分割，同时保持与文件中 class 驼峰式一致。例如：文件名<code>drawer_page.dart</code>，该文件中类名为： <code>class DrawerPage&#123;&#125;</code></li>
+</ul>
+<p>这一点，与平时 <code>vue</code> 项目中的小写首字母驼峰式命名不同，这应该是老年后台程序员很喜欢的风格，写的有点小烦。</p>
+<h2 id="flutter-中的响应式渲染原理"><a href="#flutter-中的响应式渲染原理" class="headerlink" title="flutter 中的响应式渲染原理"></a>flutter 中的响应式渲染原理</h2><blockquote>
+<p>vue 中： html -&gt; virtual Dom -&gt; dom(最终 view)<br>flutter 中： widget -&gt; element -&gt; renderObject(最终 view)</p>
+</blockquote>
+<p>flutter 与 vue 渲染原理可以说是一模一样呀，都是采用虚拟 dom 树来渲染，这一点对于前端开发来说，理解起来挺简单的。知道了这一点，也就需要了解更重要的一点了，数据驱动！ flutter 的视图变化也是根据 data 的变化更渲染.</p>
+<h2 id="flutter-中的布局"><a href="#flutter-中的布局" class="headerlink" title="flutter 中的布局"></a>flutter 中的布局</h2><p>在前端开发中，html 作为 UI 树骨架，css 作为 UI 树的枝叶，开始时，两者分开写真的很舒服，就像在 react 中写样式一样，写过之后想吐血，这开发体验比 css 差的太多了。</p>
+<p>而在 flutter 中写样式，比在 react 中写样式还要过分。因为在 flutter 中一切皆是 widget，<code>&quot;html&quot;</code> 是 widget, <code>&quot;css&quot;</code> 也是 widget,这表示他们就像 react 中一样都是<code>函数式调用</code>，并且还得一层包裹一层，css 和 html 相互嵌套。</p>
+<p>如果有一个复杂的布局，那么会是： css-widget 包裹 html-widget， html-widget 又包裹 css-widget, html-widget 再包裹 html-widget…</p>
+<p><img src="/images/flutter-code.png" alt="效果示例图"></p>
+<p>嗯，就像是回调地狱。</p>
+<h2 id="flutter-的底层语言-Dart"><a href="#flutter-的底层语言-Dart" class="headerlink" title="flutter 的底层语言 Dart"></a>flutter 的底层语言 Dart</h2><blockquote>
+<p>1.为什么使用 dart 语言</p>
+</blockquote>
+<p>Dart 语言本来都快跪了，google 为啥会选择如此’冷门’的语言来开发 flutter？主要因为它有一个目前市面上的语言都不具备的条件，对于 Android 和 Ios 开发人员来说应该深有体会：</p>
+<ol>
+<li>dart 具有 <code>jit&amp;Aot</code> 双重编译执行方式。这样就能利用 JIt 进行开发阶段的 hot reload 开发，提升研发效率。同时在最终 release 版本中使用 Aot 将 dart 代码直接变成目标平台的指令集代码，最大限度保障了性能。</li>
+<li>dart 针对 flutter 中频繁创建销毁 Widget 的场景做了专门的 gc 优化。通过分代无锁垃圾回收器，将 gc 对性能的影响降至最低。</li>
+<li>dart 语言在语法上面是类 java 的，易学易用</li>
+</ol>
+<hr>
+<blockquote>
+<p>2.为什么 widget 都是 immutable(不可变数据)？</p>
+</blockquote>
+<p>个人认为是两个主要的点：</p>
+<ul>
+<li>提高渲染效率：这里与 vue 中的思路是不一样的，虽然都是采用数据驱动，但是在 data 变化时，flutter 会重建 widget (Dom)树的方式进行数据更新，以降低数据的影响范围。而 vue 内部虽然也进行了这样的优化处理，但是不如最开始就定义为 immutable，所带来的性能消耗低。缺点就是对 GC 渲染造成压力。</li>
+<li>组件复用：既然 widget 都是不可变的。那 widget 可以以较低成本进行复用。在一个真实的渲染树中可能存在同一个 widget 渲染树中不同节点的情况。（这里有点像 vue 中的组件，如果不带 key 值，那么他会被复用是一个意思）</li>
+</ul>
+<h2 id="flutter-中的三大渲染核心：Widget-Element-RenderObject"><a href="#flutter-中的三大渲染核心：Widget-Element-RenderObject" class="headerlink" title="flutter 中的三大渲染核心：Widget &amp; Element &amp; RenderObject"></a>flutter 中的三大渲染核心：Widget &amp; Element &amp; RenderObject</h2><p><code>Widget</code> 是一个配置文件，<code>RenderObject</code> 负责管理布局、绘制等操作，而 <code>Element</code> 负责链接他们两个。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="images/diaspora-theme/Laibach.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

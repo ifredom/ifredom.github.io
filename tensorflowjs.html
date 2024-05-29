@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ifredom,"> 
+    <meta name="description" content="MagicTang&#39;s story,"> 
+    <meta name="author" content="MagicTang"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">机器学习之tensorflowJS</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">机器学习之tensorflowJS</h1>
+        <div class="stuff">
+            <span>五月 29, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Machine-learning/" rel="tag">Machine learning</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/tensorflow/" rel="tag">tensorflow</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="hello-tensorflow"><a href="#hello-tensorflow" class="headerlink" title="hello,tensorflow"></a>hello,tensorflow</h2><p>机器学习（ML）现在不光是 IT 届的新宠，几乎是每个人都在谈论的新事物。</p>
+<p>ML 如此狂野的原因是因为它非常擅长从数据中学习，以便它能够预测未来类似的事情。</p>
+<p>嗯，就是预测未来。</p>
+<p>但是手工操作 ML 是非常烦人的，它通常涉及在 JavaScript 中进行毫无趣味的矩阵操作，还涉及到许多的高级数学知识。</p>
+<p>还好，TensorFlow.js 出现了，它在 ML 这的表现相当不错！它是一个开源的库，它有很多内置的机器学习 - 例如模型和算法，所以前端 er 不必从头开始学习如何编写它们。</p>
+<h2 id="机器学习的特点"><a href="#机器学习的特点" class="headerlink" title="机器学习的特点"></a>机器学习的特点</h2><blockquote>
+<p>机器学习擅长对数据进行分类和标记。也就是对一个又一个的为进行前瞻性预测，因此实现机器学习的前提有 2 点：</p>
+</blockquote>
+<ul>
+<li><p>拥有数据。有人（用户）给我们一些根据特定公式生成的数据。这些数据可能是一些枯燥的矩阵中的点，也可能是一些有趣的数据，比如是一副图片或者是一段语音。</p>
+</li>
+<li><p>获得数据生成公式。通过查看分析这些数据，我们可以获取生成数据的固定公式，以便我们可以正确预测未来的数据点。例如，如果给了我一张照片，我们最终能够自信地说出它是一只狗还是一只松饼。</p>
+</li>
+</ul>
+<blockquote>
+<p>Tips: 传统的思维是  <code>输入+公式 = 结果</code>，而机器训练的逻辑是 <code>结果+公式 = 输入</code>。我们正是为了达到某种目的而去获取用户数据进而训练分析数据。</p>
+</blockquote>
+<h2 id="来个-demo-表演一下"><a href="#来个-demo-表演一下" class="headerlink" title="来个 demo 表演一下"></a>来个 demo 表演一下</h2><p>在 ML 中，预测数字往往比预测图形更加容易，所以在这个例子中，我们首先先将图形拟合成数据（数据来自<a href="https://js.tensorflow.org/tutorials/fit-curve.html">TensorFlow 网站</a>）</p>
+<p>首选有一个横纵（X-Y）坐标系，有一个点 a 坐标值为<code>(x,y)</code>, X 的取值区间在-1 和 1 之间也就是<code>x = [-1,1]</code>，y 按照<code>y=a*a^3+b*x^2+c*x+d</code>进行取值，这就是数据生成公式。</p>
+<p>在这里我们不知道<code>a,b,c,d</code>这些系数的值，因此也就不知道a的位置。</p>
+<p>我们的目标就是训练这几个值，如果给我们一个X值，我们来预测y值应该是什么</p>
+<p>整个训练过程用图形化进行展示，其中<strong>蓝色的点</strong>是我们最终获得的数据，<strong>红色的点</strong>是我们将要被用来训练猜测的数据。</p>
+<p>点击<code>训练</code>按钮，<strong>绿色</strong>的数据会在不断猜测的过程中越来越接近最终的真相（<strong>蓝色</strong>）。并且你会发现训练的次数越多。那么最终获得数据也就越准确</p>
+<p><a href="demo/tensorflowjs/index.html">线上预览地址</a></p>
+<p><img src="/images/tensorflowjsdemo.png" alt="效果示例图"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

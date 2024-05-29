@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ifredom,"> 
+    <meta name="description" content="MagicTang&#39;s story,"> 
+    <meta name="author" content="MagicTang"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">说说那些大厂的跨平台方案</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">说说那些大厂的跨平台方案</h1>
+        <div class="stuff">
+            <span>七月 26, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cross-platform/" rel="tag">cross-platform</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="跨平台是什么意思？"><a href="#跨平台是什么意思？" class="headerlink" title="跨平台是什么意思？"></a>跨平台是什么意思？</h1><p>源自更专业的 wiki: 跨平台泛指编程语言、软件或硬件设备可以在多种操作系统或不同硬件架构的电脑上运作。</p>
+<p>通俗直白地说就是： 前端 UI 布局时基于 html+css, androidUI 布局基于 layout, iosUI 布局基于 cocoaFrame,小程序…也就是每一门语言，你如果只是想要画几个简单的方块，非常痛苦地需要使用对应的语言去书写。</p>
+<p>跨平台则是使用一种语言去写，再经过某种工具转换为对应平台&#x2F;端的代码，从而实现统一（跨平台）。</p>
+<h2 id="实现跨平台通用的方法？"><a href="#实现跨平台通用的方法？" class="headerlink" title="实现跨平台通用的方法？"></a>实现跨平台通用的方法？</h2><p>前更深层面的东西还不是很了解就不说了，说一下从 UI 层面实现跨平台最便捷通用的方法：DSL。</p>
+<p>DSL 又是个什么?</p>
+<p>DSL 是 Domain Specific Language 的简称，是指为某些特定领域（domain）设计的专用语言。</p>
+<p>通俗直白的意思就是：实现跨平台，只需要实现一门 DSL 语言即可（不要太过担心，创造一门 DSL 语言即便是零基础也可以一步步实现）。拥有了一个新的 DSL 之后，就可以着手再将 DSL 经过特定工具分别编译为 android 或者 ios 或者前端的代码。</p>
+<p>总结起来就是：server-driven rendering.</p>
+<p>其中关于 DSL 更深入的优劣了解，移步王垠大神（编程语言学顶级专家）关于 DSL 的详解。<a href="http://www.yinwang.org/blog-cn/2017/05/25/dsl">http://www.yinwang.org/blog-cn/2017/05/25/dsl</a></p>
+<h2 id="目前流行的跨平台方案都有哪些？"><a href="#目前流行的跨平台方案都有哪些？" class="headerlink" title="目前流行的跨平台方案都有哪些？"></a>目前流行的跨平台方案都有哪些？</h2><p>Top1. Electron<br>Top2. nw.js<br>Top3. framework7<br>Top4. flutter<br>…</p>
+<p>跨平台 &#x3D; web 端 + 移动端 + 桌面端</p>
+<h2 id="适用于国情（大厂）的跨平台方案"><a href="#适用于国情（大厂）的跨平台方案" class="headerlink" title="适用于国情（大厂）的跨平台方案"></a>适用于国情（大厂）的跨平台方案</h2><ol>
+<li>weex (阿里) [laji]</li>
+<li>Taro （京东） [开源，蛮稳定]</li>
+<li>Picasso （美团）[未开源]</li>
+<li>react Native (Facebook) [ … ]</li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="images/diaspora-theme/LastNightInParis.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

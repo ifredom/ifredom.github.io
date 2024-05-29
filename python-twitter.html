@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ifredom - 文不可学而成，气可以养而至</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ifredom,"> 
+    <meta name="description" content="MagicTang&#39;s story,"> 
+    <meta name="author" content="MagicTang"> 
+    <link rel="alternative" href="atom.xml" title="Ifredom" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8691406134231910",
+        enable_page_level_ads: true
+      });
+    </script>
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <!-- <img src="/img/logo_min.png" alt=""> -->
+    <!-- <a class="icon-home image-icon" href="javascript:;"></a> -->
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">使用python发twitter</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">使用python发twitter</h1>
+        <div class="stuff">
+            <span>六月 08, 2018</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/crawler/" rel="tag">crawler</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="前提是梯子"><a href="#前提是梯子" class="headerlink" title="前提是梯子"></a>前提是梯子</h2><p>要能访问到twitter（世界级微博），前提是得有梯子.</p>
+<p>我使用的是Shadowsocks，并且需要将代理模式设置为全局模式.</p>
+<p>首先要能访问到twitter,服务器上ping通<br><img src="/images/twitterping.png" alt="效果示例图"></p>
+<h2 id="twitter官方提供的包tweepy"><a href="#twitter官方提供的包tweepy" class="headerlink" title="twitter官方提供的包tweepy"></a>twitter官方提供的包tweepy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装tweepy</span></span><br><span class="line">pip3 install tweepy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tweepy有什么用呢？使用程序发送推文，获取某一个人所有的推文(比如特朗普)，获取某一个兴趣组所有的推文(比如根据数据分析推测该用户群体的兴趣趋势，常用于金融领域).</li>
+</ul>
+<h2 id="tweepy-发送一条推文"><a href="#tweepy-发送一条推文" class="headerlink" title="tweepy:发送一条推文"></a>tweepy:发送一条推文</h2><blockquote>
+<p>新建一个文件demo.js，复制以下内容</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment">#coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> tweepy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 代理，系统代理模式改为 全局模式</span></span><br><span class="line"><span class="comment">#填写twitter提供的开发Key和secret</span></span><br><span class="line">consumer_key = <span class="string">&#x27;dkYGHcJMl4enNsNIMJYE3vx0M&#x27;</span></span><br><span class="line">consumer_secret = <span class="string">&#x27;F0zCq4ietgc0zAIvDeugLGOeou8AMpyTXk7O8WirvdZe9aI1G5&#x27;</span></span><br><span class="line">access_token = <span class="string">&#x27;796625332501671936-nu7pw8sL71pVTztbXjooyZnT5Q8xrfL&#x27;</span></span><br><span class="line">access_token_secret = <span class="string">&#x27;1GAx8IQPtaDiIZ9BMB4SgpphIGjZdcWbrEjnDD5YaEmtf&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 提交你的Key和secret</span></span><br><span class="line">auth = tweepy.OAuthHandler(consumer_key, consumer_secret)</span><br><span class="line">auth.set_access_token(access_token, access_token_secret)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取类似于内容句柄的东西</span></span><br><span class="line">api = tweepy.API(auth)</span><br><span class="line"></span><br><span class="line"><span class="comment"># hello python 发送到自己的帐号上</span></span><br><span class="line">api.update_status(<span class="string">&#x27;hello python for twitter&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印其他用户主页上的时间轴里的内容</span></span><br><span class="line">public_tweets = api.user_timeline(<span class="string">&#x27;LeoDiCaprio&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> tweet <span class="keyword">in</span> public_tweets:</span><br><span class="line">    <span class="built_in">print</span>(tweet.text)</span><br><span class="line"></span><br><span class="line"><span class="comment">#搜索具有League of Legends(lol英雄联盟的全称)的关键词的帐号，数据收集</span></span><br><span class="line"><span class="keyword">for</span> tweet <span class="keyword">in</span> tweepy.Cursor(api.search,q=<span class="string">&#x27;League of Legends&#x27;</span>).items(<span class="number">10</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Tweet by: @&#x27;</span> + tweet.user.screen_name)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运行<code>py -3 demo.py</code>效果在上图中</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                    
+                        <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
